@@ -1,0 +1,26 @@
+# ── Web framework ─────────────────────────────────────────────────────────────
+fastapi==0.162.0
+uvicorn[standard]==0.54.0
+pydantic==2.14.1
+pydantic-settings==2.7.1
+
+# ── Database ──────────────────────────────────────────────────────────────────
+sqlalchemy[asyncio]==2.0.41
+aiosqlite==0.21.0          # SQLite async driver (dev)
+# asyncpg==0.30.0          # PostgreSQL async driver (uncomment for prod)
+alembic==1.16.1            # Database migrations
+
+# ── Data science ──────────────────────────────────────────────────────────────
+numpy==2.3.4
+pandas==3.0.2
+scikit-learn==1.8.0
+
+# ── HTTP client (for Prometheus queries + FastAPI TestClient) ────────────────
+httpx==0.28.1
+
+# ── Testing ───────────────────────────────────────────────────────────────────
+pytest==9.1.1
+pytest-asyncio==1.4.0      # 1.x required for pytest >=9 compatibility
+
+# ── Dev utilities ────────────────────────────────────────────────────────────
+python-dotenv==1.1.0       # Load .env in dev (pydantic-settings uses this automatically)
