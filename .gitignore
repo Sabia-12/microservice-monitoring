@@ -1,0 +1,103 @@
+# ─── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+.installed.cfg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# mypy / type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# ─── JavaScript / Node ────────────────────────────────────────────────────────
+node_modules/
+.npm
+.pnpm-store/
+.yarn/
+
+# Vite build output
+dist/
+.vite/
+*.local
+
+# ─── Secrets & environment variables ─────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# ─── Databases (local dev only) ───────────────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+
+# ─── Large dataset files (download separately — see data-analysis/README) ────
+data/raw/
+data/processed/
+data-analysis/data/
+*.parquet
+*.csv.gz
+*.tar.gz
+*.zip
+
+# ─── Jupyter Notebooks (outputs only — keep .ipynb structure) ────────────────
+.ipynb_checkpoints/
+
+# ─── IDEs ─────────────────────────────────────────────────────────────────────
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+*.swp
+*.swo
+
+# ─── OS ───────────────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ─── Docker ───────────────────────────────────────────────────────────────────
+.docker/
+
+# ─── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+logs/
