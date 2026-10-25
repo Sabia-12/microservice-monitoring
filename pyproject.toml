@@ -3,3 +3,7 @@ testpaths = ["backend/tests"]
 asyncio_mode = "auto"
 log_cli = true
 log_cli_level = "INFO"
+pythonpath = ["."]
+filterwarnings = [
+    "ignore::DeprecationWarning:starlette",
+]

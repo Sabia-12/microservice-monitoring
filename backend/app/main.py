@@ -6,6 +6,8 @@ Usage::
 """
 
 import logging
+from contextlib import asynccontextmanager
+from typing import AsyncGenerator
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -21,6 +23,14 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+@asynccontextmanager
+async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
+    """Handle application startup and shutdown lifecycle."""
+    logger.info("Starting Microservice Monitoring API (v%s)", app.version)
+    yield
+    logger.info("Shutting down Microservice Monitoring API")
+
+
 def create_app() -> FastAPI:
     """Create and configure the FastAPI application."""
     app = FastAPI(
@@ -30,6 +40,7 @@ def create_app() -> FastAPI:
             "for microservice telemetry."
         ),
         version="0.1.0",
+        lifespan=lifespan,
         docs_url="/docs",
         redoc_url="/redoc",
         openapi_url="/openapi.json",
@@ -46,14 +57,6 @@ def create_app() -> FastAPI:
 
     # ── Routers ───────────────────────────────────────────────────────────────
     app.include_router(router, prefix="/api/v1")
-
-    @app.on_event("startup")
-    async def on_startup() -> None:
-        logger.info("Starting Microservice Monitoring API (v%s)", app.version)
-
-    @app.on_event("shutdown")
-    async def on_shutdown() -> None:
-        logger.info("Shutting down Microservice Monitoring API")
 
     return app
 
